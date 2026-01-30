@@ -15,12 +15,14 @@ public class GroupMovement : MonoBehaviour
     [SerializeField]
     private Transform groupBody;
 
+    [SerializeField]
+    private float groupRotationSpeed = 1f;
+
     private CharacterController groupController;
 
     private int currentMoveToPointIndex = 0;
     private Transform currentMoveToPoint;
     private Vector3 groupVelocity;
-    private bool reverse = false;
 
     private void Start()
     {
@@ -35,10 +37,14 @@ public class GroupMovement : MonoBehaviour
             return;
         }
 
+        Debug.Log(currentMoveToPointIndex);
+
         /// GIRLS DON'T REMOVE THIS SWITCH, THE AI WON'T WORK WITHOUT IT
         PointMovement();
         groupController.Move(groupVelocity * Time.deltaTime);
         Debug.DrawRay(transform.position, groupVelocity, Color.red);
+
+        RotateGroup();
     }
 
     private Vector3 GetDirectcion()
@@ -77,5 +83,10 @@ public class GroupMovement : MonoBehaviour
         {
             ChangePoint();
         }
+    }
+
+    private void RotateGroup()
+    {
+        transform.Rotate(transform.up * groupRotationSpeed * Time.deltaTime);
     }
 }
