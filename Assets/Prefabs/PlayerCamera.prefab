@@ -83,7 +83,7 @@ Camera:
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
-  m_StereoConvergence: 10
+  m_StereoConvergence: 5
   m_StereoSeparation: 0.022
 --- !u!81 &4500392866572551146
 AudioListener:
@@ -107,4 +107,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   offset: {x: 0, y: 10, z: -5}
-  smoothSpeed: 10
+  smoothSpeed: 5
