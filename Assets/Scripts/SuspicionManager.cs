@@ -106,4 +106,20 @@ public class SuspicionManager : MonoBehaviour
     {
         return mask1 == mask2;
     }
+
+    public void AddSuspicion(float amount)
+{
+    currentSuspicion = Mathf.Clamp(currentSuspicion + amount, 0f, maxSuspicion);
+}
+
+    public bool IsPlayerSeenByAnyNPC()
+    {
+        foreach (var npc in allNPCs)
+        {
+            if (npc.CanSeePlayer(playerTransform))
+                return true;
+        }
+        return false;
+    }
+
 }
