@@ -302,7 +302,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01ca6c66e85bdef49a9cf44e94391808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maskType: Green
+  currentMask: Green
+  maskNames: []
+  maskObjects: []
 --- !u!1 &888137535
 GameObject:
   m_ObjectHideFlags: 0
