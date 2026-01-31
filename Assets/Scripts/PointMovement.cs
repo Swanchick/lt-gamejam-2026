@@ -3,11 +3,7 @@ using UnityEngine;
 public abstract class PointMovement : MonoBehaviour
 {
     [SerializeField]
-    protected Transform moveToPoint;
-
-    [SerializeField]
     protected float speed = 1f;
-
 
     [SerializeField]
     protected float maxDistance = 0.5f;
@@ -15,16 +11,11 @@ public abstract class PointMovement : MonoBehaviour
     protected CharacterController characterController;
     private Vector3 velocity = Vector3.zero;
 
-    private void Start()
-    {
-        characterController = GetComponent<CharacterController>();
-    }
-
-    protected virtual void MoveUpdate(Transform point)
+    protected virtual void MoveUpdate(CharacterController cc, Transform point)
     {
         /// GIRLS DON'T REMOVE THIS SWITCH, THE AI WON'T WORK WITHOUT IT
         MoveToPoint(point);
-        characterController.Move(velocity * Time.deltaTime);
+        cc.Move(velocity * Time.deltaTime);
         Debug.DrawRay(transform.position, velocity, Color.red);
     }
 
@@ -55,6 +46,4 @@ public abstract class PointMovement : MonoBehaviour
     }
 
     protected abstract void OnPointReached(Transform point);
-
-
 }

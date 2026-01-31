@@ -1,16 +1,22 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
-public class GroupMovement : MonoBehaviour
+
+enum GroupStatus
+{
+    None,
+    Waiting,
+    Resting,
+}
+
+public class GroupMovement : PointMovement
 {
     [SerializeField]
+    private List<Npc> npcs = new();
+
+    [SerializeField]
     private List<Transform> moveToPoints = new();
-
-    [SerializeField]
-    private float monsterSpeed = 5f;
-
-    [SerializeField]
-    private float pointDistance = 0.5f;
 
     [SerializeField]
     private Transform groupBody;
@@ -18,11 +24,18 @@ public class GroupMovement : MonoBehaviour
     [SerializeField]
     private float groupRotationSpeed = 1f;
 
+    [SerializeField]
+    private List<Transform> restingPoints = new();
+
+    [SerializeField]
+    private float restingTime = 10f;
+
     private CharacterController groupController;
 
     private int currentMoveToPointIndex = 0;
     private Transform currentMoveToPoint;
-    private Vector3 groupVelocity;
+
+    private GroupStatus status = GroupStatus.None;
 
     private void Start()
     {
@@ -36,20 +49,36 @@ public class GroupMovement : MonoBehaviour
         {
             return;
         }
+
+        MoveUpdate(groupController, currentMoveToPoint);
+        RotateGroup();
+
+        if (status == GroupStatus.None)
+        {
+            status = GroupStatus.Waiting;
+            StartCoroutine(WaitToRest());
+        }
     }
 
-    private Vector3 GetDirectcion()
+    private IEnumerator WaitToRest()
     {
-        Vector3 direction = currentMoveToPoint.position - transform.position;
-        direction.Normalize();
-        direction.y = 0;
+        yield return new WaitForSeconds(restingTime);
 
-        return direction;
+        Transform point = GetRandom(restingPoints);
+        Npc npc = GetRandom(npcs);
+        npc.StartResting(point);
+
+        status = GroupStatus.Resting;
     }
 
-    private float DistanceToMoveToPoint()
+    public void OnNpcComingBack()
     {
-        return Vector3.Distance(transform.position, currentMoveToPoint.position);
+        if (status != GroupStatus.Resting)
+        {
+            return;
+        }
+
+        status = GroupStatus.None;
     }
 
     private void ChangePoint()
@@ -64,20 +93,19 @@ public class GroupMovement : MonoBehaviour
         currentMoveToPoint = moveToPoints[currentMoveToPointIndex];
     }
 
-    private void PointMovement()
+    private T GetRandom<T>(List<T> list)
     {
-        Vector3 wishDir = GetDirectcion();
-        groupVelocity = Vector3.Lerp(groupVelocity, wishDir * monsterSpeed, Time.deltaTime);
-        float dinstance = DistanceToMoveToPoint();
-
-        if (dinstance < pointDistance)
-        {
-            ChangePoint();
-        }
+        int index = Random.Range(0, list.Count);
+        return list[index];
     }
 
     private void RotateGroup()
     {
         transform.Rotate(transform.up * groupRotationSpeed * Time.deltaTime);
+    }
+
+    protected override void OnPointReached(Transform point)
+    {
+        ChangePoint();
     }
 }
