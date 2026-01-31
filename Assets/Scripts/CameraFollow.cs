@@ -6,6 +6,17 @@ public class CameraFollow : MonoBehaviour
     public Vector3 offset = new Vector3(0, 10, -10);
     public float smoothSpeed = 10f;
 
+    private Quaternion initialRotation;
+
+    void Start()
+    {
+        if (!target) return;
+
+        Vector3 direction = -offset; // camera position relative to target
+        initialRotation = Quaternion.LookRotation(direction);
+        transform.rotation = initialRotation;
+    }
+
     void Update()
     {
         if (!target) return;
@@ -16,7 +27,7 @@ public class CameraFollow : MonoBehaviour
             desiredPosition,
             smoothSpeed * Time.deltaTime
         );
-
-        transform.LookAt(target);
+        
+        transform.rotation = initialRotation;
     }
 }
