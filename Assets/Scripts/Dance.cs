@@ -17,22 +17,17 @@ public class Dance : MonoBehaviour
     void Update()
     {
         HandleDancingInput();
-        animator.SetBool("Dance", isDancing);
 
         if (isDancing)
         {
             Debug.Log("Dancing...");
             suspicionManager.AddSuspicion(-Time.deltaTime * 3f);
-
-
         }
     }
 
     private void HandleDancingInput()
     {
         isDancing = Input.GetMouseButton(1);
-
-        // Optional: play animation here
-        // animator.SetBool("IsDancing", isDancing);
+        animator.SetBool("Dance", isDancing);
     }
 }
