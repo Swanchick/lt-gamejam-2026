@@ -64,7 +64,7 @@ public class SuspicionManager : MonoBehaviour
         {
             if (npc.CanSeePlayer(playerTransform))
             {
-                if (MaskTypesMatches(npc.GetComponent<Mask>().maskType, playerObj.GetComponent<Mask>().maskType))
+                if (MaskTypesMatches(npc.GetComponent<Mask>().MaskName, playerObj.GetComponent<Mask>().MaskName))
                     seenByAlly = true;
                 else
                     seenByEnemy = true;
