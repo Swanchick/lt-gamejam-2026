@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6531355386014201230}
   - component: {fileID: 633549130909618928}
+  - component: {fileID: -1838641296454987412}
   m_Layer: 0
   m_Name: SuspicionManager
   m_TagString: Untagged
@@ -51,3 +52,16 @@ MonoBehaviour:
   suspicionEnemyRate: 25
   suspicionDecayRate: 10
   currentSuspicion: 0
+--- !u!114 &-1838641296454987412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782835965297747765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ca6c66e85bdef49a9cf44e94391808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskType: Green

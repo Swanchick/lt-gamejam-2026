@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1309793116113557325}
   - component: {fileID: 2959623876891033263}
   - component: {fileID: 7659410596767942883}
+  - component: {fileID: 5777438988994397573}
+  - component: {fileID: 7024259972819559081}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -74,6 +76,32 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5777438988994397573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556285282535751556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ca6c66e85bdef49a9cf44e94391808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maskType: 
+--- !u!114 &7024259972819559081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556285282535751556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebe8a8e94c060f4a96695876c681b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDancing: 0
 --- !u!1 &4195962909043355958
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,14 +7,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speedMultiplier = 1f;
 
     private CharacterController controller;
+    private GameObject playerObj;
     private Vector3 lastMoveDirection = Vector3.forward;
 
     void Awake()
     {
         controller = GetComponent<CharacterController>();
+        playerObj = this.gameObject;
     }
 
     void Update()
+    {
+        if (playerObj.GetComponent<Dance>().isDancing)
+        {
+            return;
+        }
+
+        HandleMovement();
+    }
+
+    private void HandleMovement()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
