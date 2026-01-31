@@ -20,13 +20,14 @@ public class SuspicionManager : MonoBehaviour
     [HideInInspector]
     public float currentSuspicion = 0f;
 
+    private GameObject playerObj;
     private Transform playerTransform;
     private List<NPCFOV> allNPCs = new List<NPCFOV>();
 
 
     void Awake()
     {
-        GameObject playerObj = GameObject.FindGameObjectWithTag(playerTag);
+        playerObj = GameObject.FindGameObjectWithTag(playerTag);
         if (playerObj != null)
             playerTransform = playerObj.transform;
         else
@@ -63,7 +64,7 @@ public class SuspicionManager : MonoBehaviour
         {
             if (npc.CanSeePlayer(playerTransform))
             {
-                if (npc.MaskTypeMatchesPlayer())
+                if (MaskTypesMatches(npc.GetComponent<Mask>().maskType, playerObj.GetComponent<Mask>().maskType))
                     seenByAlly = true;
                 else
                     seenByEnemy = true;
@@ -96,5 +97,10 @@ public class SuspicionManager : MonoBehaviour
     {
         Debug.Log("Player caught!");
         // TODO: trigger game over
+    }
+
+    private bool MaskTypesMatches(string mask1, string mask2)
+    {
+        return mask1 == mask2;
     }
 }
