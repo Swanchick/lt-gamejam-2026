@@ -1240,6 +1240,14 @@ PrefabInstance:
       propertyPath: m_ExcludeLayers.m_Bits
       value: 192
       objectReference: {fileID: 0}
+    - target: {fileID: 7987568372720826752, guid: f9b7724f868eda349bc7f14c693a9785, type: 3}
+      propertyPath: m_Name
+      value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 7987568372720826752, guid: f9b7724f868eda349bc7f14c693a9785, type: 3}
+      propertyPath: m_TagString
+      value: Target
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

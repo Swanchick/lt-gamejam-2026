@@ -81,4 +81,9 @@ public class Npc : PointMovement
         yield return new WaitForSeconds(restingTime);
         status = NpcStatus.GoingBack;
     }
+
+    public void Kill()
+    {
+        
+    }
 }
