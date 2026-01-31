@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class SuspicionManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class SuspicionManager : MonoBehaviour
     [SerializeField] private float suspicionAloneRate = 5f;
     [SerializeField] private float suspicionEnemyRate = 25f;
     [SerializeField] private float suspicionDecayRate = 10f;
+
+    [SerializeField] private Slider slider;
 
     [Header("Player State")]
     private bool isDancing = false;
@@ -40,6 +43,8 @@ public class SuspicionManager : MonoBehaviour
     {
         if (playerTransform != null && npcObjects.Length > 0)
             UpdateSuspicion();
+        
+        slider.value = currentSuspicion / 100f;
     }
 
     private void UpdateSuspicion()
@@ -54,9 +59,7 @@ public class SuspicionManager : MonoBehaviour
             if (npc.GetComponent<FOVLogic>().CanSeePlayer(playerTransform))
             {
                 Mask npcMask = npc.GetComponentInChildren<Mask>();
-                Debug.Log($"NPC Mask: {npcMask.MaskName}");
                 Mask playerMask = playerObj.GetComponentInChildren<Mask>();
-                Debug.Log($"Player Mask: {playerMask.MaskName}");
 
                 if (MaskTypesMatches(npcMask.MaskName, playerMask.MaskName))
                     seenByAlly = true;
@@ -89,7 +92,7 @@ public class SuspicionManager : MonoBehaviour
 
     private void OnSuspicionMax()
     {
-        Debug.Log("Player caught!");
+        Debug.LogError("Player caught!");
         // TODO: trigger game over
     }
 

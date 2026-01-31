@@ -1,9 +1,13 @@
+using System;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     [Header("Attack Settings")]
     [SerializeField] private float killRange = 1.5f;
+
+    [SerializeField]
+    private Mask playerMask;
 
     private SuspicionManager suspicionManager;
 
@@ -26,6 +30,8 @@ public class PlayerAttack : MonoBehaviour
         if (target == null) return;
 
         target.Kill();
+
+        PlayerMaskManager.SetMask(target.Mask.MaskName);
 
         bool seenByAnyone = suspicionManager.IsPlayerSeenByAnyNPC();
 

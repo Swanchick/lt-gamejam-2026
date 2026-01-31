@@ -59,6 +59,11 @@ public class Npc : PointMovement
         status = NpcStatus.GoingToRest;
     }
 
+    public void OnNpcComingBack()
+    {
+        group.OnNpcComingBack();
+    }
+
     protected override void OnPointReached(Transform point)
     {
         switch (status)
@@ -69,7 +74,7 @@ public class Npc : PointMovement
                 break;
             case NpcStatus.GoingBack:
                 status = NpcStatus.Dancing;
-                group.OnNpcComingBack();
+                OnNpcComingBack();
                 break;
             default:
                 break;

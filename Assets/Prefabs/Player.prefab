@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2959623876891033263}
   - component: {fileID: 7659410596767942883}
   - component: {fileID: 7024259972819559081}
+  - component: {fileID: 3589905464426818916}
+  - component: {fileID: 2898875723005773944}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -90,6 +92,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDancing: 0
+--- !u!114 &3589905464426818916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556285282535751556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc097c1c3b35514284d77b5261ae487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killRange: 1.5
+  playerMask: {fileID: 0}
+--- !u!114 &2898875723005773944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556285282535751556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afe771149da805e4e939af97327f8796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMask: {fileID: 5145571404635432453}
+  uiMask: {fileID: 0}
 --- !u!1 &4195962909043355958
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +244,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c4c193b35487c459eba9db87b085f9, type: 3}
+--- !u!114 &5145571404635432453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4746326217542208817, guid: f5c4c193b35487c459eba9db87b085f9, type: 3}
+  m_PrefabInstance: {fileID: 483832816716081972}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ca6c66e85bdef49a9cf44e94391808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8252892320119596926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8376346438615878730, guid: f5c4c193b35487c459eba9db87b085f9, type: 3}

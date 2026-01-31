@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class KillableNPC : MonoBehaviour
 {
+    public Mask Mask;
+
     private Npc npc;
     private CharacterController controller;
 
@@ -25,6 +28,8 @@ public class KillableNPC : MonoBehaviour
             controller.enabled = false;
 
         transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, 0f);
+
+        npc.OnNpcComingBack();
 
         // Later: play animation / remove collider / despawn
     }

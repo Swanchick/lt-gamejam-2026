@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1877c4a43b7a4540a75a2007263d8ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Mask: {fileID: 5274002305977362625}
 --- !u!1001 &643825268609590768
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -175,6 +176,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5c4c193b35487c459eba9db87b085f9, type: 3}
+--- !u!114 &5274002305977362625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4746326217542208817, guid: f5c4c193b35487c459eba9db87b085f9, type: 3}
+  m_PrefabInstance: {fileID: 643825268609590768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ca6c66e85bdef49a9cf44e94391808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8994129495139805626 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8376346438615878730, guid: f5c4c193b35487c459eba9db87b085f9, type: 3}
@@ -290,10 +302,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: 527f00d2458d9f34ead040400b122b6e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: af5f42be6ebdee44fa530cf927ecef57, type: 2}
+    - target: {fileID: -3195828791156449804, guid: 527f00d2458d9f34ead040400b122b6e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cd4660a90ef4b914e97a7a0a59ac5dd0, type: 2}
+    - target: {fileID: 895425838269697267, guid: 527f00d2458d9f34ead040400b122b6e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bc8892f90f7366c439fef2bd7e232ead, type: 2}
     - target: {fileID: 919132149155446097, guid: 527f00d2458d9f34ead040400b122b6e, type: 3}
       propertyPath: m_Name
       value: Female
       objectReference: {fileID: 0}
+    - target: {fileID: 8567717000986892130, guid: 527f00d2458d9f34ead040400b122b6e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2ea6a568135a3da43bef58a411e26758, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
