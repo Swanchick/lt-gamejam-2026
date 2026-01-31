@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class NPCFOV : MonoBehaviour
 {
-    [SerializeField] private float viewAngle = 110f;
-    [SerializeField] private float viewDistance = 5f;
+    [SerializeField] public float viewAngle = 110f;
+    [SerializeField] public float viewDistance = 5f;
 
     public bool CanSeePlayer(Transform playerTransform)
     {
@@ -21,6 +21,7 @@ public class NPCFOV : MonoBehaviour
             return false;
         }
         
+        Debug.Log("NPC detected player");
         return true;
     }
 
