@@ -36,15 +36,6 @@ public class GroupMovement : MonoBehaviour
         {
             return;
         }
-
-        Debug.Log(currentMoveToPointIndex);
-
-        /// GIRLS DON'T REMOVE THIS SWITCH, THE AI WON'T WORK WITHOUT IT
-        PointMovement();
-        groupController.Move(groupVelocity * Time.deltaTime);
-        Debug.DrawRay(transform.position, groupVelocity, Color.red);
-
-        RotateGroup();
     }
 
     private Vector3 GetDirectcion()
