@@ -35,5 +35,5 @@ public class NPCFOV : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + leftBoundary * viewDistance);
         Gizmos.DrawLine(transform.position, transform.position + rightBoundary * viewDistance);
     }
-
+    
 }
