@@ -12,7 +12,7 @@ public enum NpcStatus
 public class Npc : PointMovement
 {
     public NpcStatus status { get; private set; } = NpcStatus.Dancing;
-    
+
     [SerializeField]
     private GroupMovement group;
 
