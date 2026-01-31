@@ -12,9 +12,6 @@ public enum NpcStatus
 public class Npc : PointMovement
 {
     public NpcStatus status { get; private set; } = NpcStatus.Dancing;
-    
-    [SerializeField]
-    private string maskType;
 
     [SerializeField]
     private GroupMovement group;
@@ -83,10 +80,5 @@ public class Npc : PointMovement
     {
         yield return new WaitForSeconds(restingTime);
         status = NpcStatus.GoingBack;
-    }
-
-    public bool MaskTypeMatchesPlayer(string playerMaskType)
-    {
-        return maskType == playerMaskType;
     }
 }
