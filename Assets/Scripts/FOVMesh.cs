@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 public class FOVMesh : MonoBehaviour
 {
-    private NPCFOV npcFOV;
+    private FOVLogic npcFOV;
     [SerializeField] private int segments = 20;
 
     private Mesh mesh;
@@ -11,7 +11,7 @@ public class FOVMesh : MonoBehaviour
     void Awake()
     {
         if (!npcFOV)
-            npcFOV = GetComponentInParent<NPCFOV>();
+            npcFOV = GetComponentInParent<FOVLogic>();
 
         mesh = new Mesh();
         GetComponent<MeshFilter>().mesh = mesh;

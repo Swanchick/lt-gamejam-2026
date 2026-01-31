@@ -22,7 +22,7 @@ public class SuspicionManager : MonoBehaviour
 
     private GameObject playerObj;
     private Transform playerTransform;
-    private List<NPCFOV> allNPCs = new List<NPCFOV>();
+    private List<FOVLogic> allNPCs = new List<FOVLogic>();
 
 
     void Awake()
@@ -36,7 +36,7 @@ public class SuspicionManager : MonoBehaviour
         GameObject[] npcObjects = GameObject.FindGameObjectsWithTag(npcTag);
         foreach (var npcObj in npcObjects)
         {
-            NPCFOV npcFov = npcObj.GetComponent<NPCFOV>();
+            FOVLogic npcFov = npcObj.GetComponent<FOVLogic>();
             if (npcFov != null)
                 allNPCs.Add(npcFov);
             else
