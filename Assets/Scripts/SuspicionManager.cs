@@ -22,7 +22,7 @@ public class SuspicionManager : MonoBehaviour
 
     private GameObject playerObj;
     private Transform playerTransform;
-    private List<FOVLogic> allNPCs = new List<FOVLogic>();
+    private GameObject[] npcObjects;
 
 
     void Awake()
@@ -33,23 +33,12 @@ public class SuspicionManager : MonoBehaviour
         else
             Debug.LogError("No GameObject with Player tag found in scene!");
 
-        GameObject[] npcObjects = GameObject.FindGameObjectsWithTag(npcTag);
-        foreach (var npcObj in npcObjects)
-        {
-            FOVLogic npcFov = npcObj.GetComponent<FOVLogic>();
-            if (npcFov != null)
-                allNPCs.Add(npcFov);
-            else
-                Debug.LogWarning($"NPC object {npcObj.name} has no FOVLogic script!");
-        }
-
-        if (allNPCs.Count <= 0)
-            Debug.LogWarning("No NPCs with FOVLogic found in the scene!");
+        npcObjects = GameObject.FindGameObjectsWithTag(npcTag);
     }
 
     void Update()
     {
-        if (playerTransform != null && allNPCs.Count > 0)
+        if (playerTransform != null && npcObjects.Length > 0)
             UpdateSuspicion();
     }
 
@@ -60,12 +49,14 @@ public class SuspicionManager : MonoBehaviour
         bool seenByEnemy = false;
         bool seenByAlly = false;
 
-        foreach (var npc in allNPCs)
+        foreach (var npc in npcObjects)
         {
-            if (npc.CanSeePlayer(playerTransform))
+            if (npc.GetComponent<FOVLogic>().CanSeePlayer(playerTransform))
             {
                 Mask npcMask = npc.GetComponentInChildren<Mask>();
-                Mask playerMask = playerObj.GetComponent<Mask>();
+                Debug.Log($"NPC Mask: {npcMask.MaskName}");
+                Mask playerMask = playerObj.GetComponentInChildren<Mask>();
+                Debug.Log($"Player Mask: {playerMask.MaskName}");
 
                 if (MaskTypesMatches(npcMask.MaskName, playerMask.MaskName))
                     seenByAlly = true;
@@ -114,9 +105,9 @@ public class SuspicionManager : MonoBehaviour
 
     public bool IsPlayerSeenByAnyNPC()
     {
-        foreach (var npc in allNPCs)
+        foreach (var npc in npcObjects)
         {
-            if (npc.CanSeePlayer(playerTransform))
+            if (npc.GetComponent<FOVLogic>().CanSeePlayer(playerTransform))
                 return true;
         }
         return false;
