@@ -3,7 +3,10 @@ using UnityEngine;
 public class Dance : MonoBehaviour
 {
     public bool isDancing = false;
-    
+
+    [SerializeField]
+    private Animator animator;
+
     private SuspicionManager suspicionManager;
 
     private void Start()
@@ -14,6 +17,8 @@ public class Dance : MonoBehaviour
     void Update()
     {
         HandleDancingInput();
+        animator.SetBool("Dance", isDancing);
+
         if (isDancing)
         {
             Debug.Log("Dancing...");
