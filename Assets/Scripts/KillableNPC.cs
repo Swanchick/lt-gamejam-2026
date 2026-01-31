@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class KillableNPC : MonoBehaviour
 {
+    public event Action OnKilled;
     public Mask Mask;
 
     private Npc npc;
@@ -31,6 +32,7 @@ public class KillableNPC : MonoBehaviour
 
         npc.OnNpcComingBack();
 
+        OnKilled?.Invoke();
         // Later: play animation / remove collider / despawn
     }
 }
