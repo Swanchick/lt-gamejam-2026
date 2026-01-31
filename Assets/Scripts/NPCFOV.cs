@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class NPCFOV : MonoBehaviour
 {
-    [SerializeField] private float viewAndgle = 110f;
+    [SerializeField] private float viewAngle = 110f;
     [SerializeField] private float viewDistance = 5f;
 
     public bool CanSeePlayer(Transform playerTransform)
@@ -16,11 +16,23 @@ public class NPCFOV : MonoBehaviour
         }
         
         float angleToPlayer = Vector3.Angle(transform.forward, dirToPlayer);
-        if (angleToPlayer > viewAndgle / 2f)
+        if (angleToPlayer > viewAngle / 2f)
         {
             return false;
         }
         
         return true;
     }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+
+        Vector3 leftBoundary = Quaternion.Euler(0, -viewAngle / 2f, 0) * transform.forward;
+        Vector3 rightBoundary = Quaternion.Euler(0, viewAngle / 2f, 0) * transform.forward;
+
+        Gizmos.DrawLine(transform.position, transform.position + leftBoundary * viewDistance);
+        Gizmos.DrawLine(transform.position, transform.position + rightBoundary * viewDistance);
+    }
+
 }
