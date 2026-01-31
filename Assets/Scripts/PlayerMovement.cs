@@ -50,12 +50,5 @@ public class PlayerMovement : MonoBehaviour
                 rotationSpeed * Time.deltaTime
             );
         }
-
-        // Lock Y
-        transform.position = new Vector3(
-            transform.position.x,
-            0f,
-            transform.position.z
-        );
     }
 }
