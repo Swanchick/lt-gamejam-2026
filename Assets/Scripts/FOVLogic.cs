@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NPCFOV : MonoBehaviour
+public class FOVLogic : MonoBehaviour
 {
     [SerializeField] public float viewAngle = 110f;
     [SerializeField] public float viewDistance = 5f;

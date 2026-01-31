@@ -6,7 +6,7 @@ public class SuspicionManager : MonoBehaviour
 {
     [Header("Tags")]
     [SerializeField] private string playerTag = "Player";
-    [SerializeField] private string npcTag = "NPC";
+    [SerializeField] private string npcTag = "Enemy";
 
     [Header("Suspicion Settings")]
     [SerializeField] private float maxSuspicion = 100f;
@@ -22,7 +22,7 @@ public class SuspicionManager : MonoBehaviour
 
     private GameObject playerObj;
     private Transform playerTransform;
-    private List<NPCFOV> allNPCs = new List<NPCFOV>();
+    private GameObject[] npcObjects;
 
 
     void Awake()
@@ -33,23 +33,12 @@ public class SuspicionManager : MonoBehaviour
         else
             Debug.LogError("No GameObject with Player tag found in scene!");
 
-        GameObject[] npcObjects = GameObject.FindGameObjectsWithTag(npcTag);
-        foreach (var npcObj in npcObjects)
-        {
-            NPCFOV npcFov = npcObj.GetComponent<NPCFOV>();
-            if (npcFov != null)
-                allNPCs.Add(npcFov);
-            else
-                Debug.LogWarning($"NPC object {npcObj.name} has no NPCFOV script!");
-        }
-
-        if (allNPCs.Count <= 0)
-            Debug.LogWarning("No NPCs with NPCFOV found in the scene!");
+        npcObjects = GameObject.FindGameObjectsWithTag(npcTag);
     }
 
     void Update()
     {
-        if (playerTransform != null && allNPCs.Count > 0)
+        if (playerTransform != null && npcObjects.Length > 0)
             UpdateSuspicion();
     }
 
@@ -60,11 +49,16 @@ public class SuspicionManager : MonoBehaviour
         bool seenByEnemy = false;
         bool seenByAlly = false;
 
-        foreach (var npc in allNPCs)
+        foreach (var npc in npcObjects)
         {
-            if (npc.CanSeePlayer(playerTransform))
+            if (npc.GetComponent<FOVLogic>().CanSeePlayer(playerTransform))
             {
-                if (MaskTypesMatches(npc.GetComponent<Mask>().MaskName, playerObj.GetComponent<Mask>().MaskName))
+                Mask npcMask = npc.GetComponentInChildren<Mask>();
+                Debug.Log($"NPC Mask: {npcMask.MaskName}");
+                Mask playerMask = playerObj.GetComponentInChildren<Mask>();
+                Debug.Log($"Player Mask: {playerMask.MaskName}");
+
+                if (MaskTypesMatches(npcMask.MaskName, playerMask.MaskName))
                     seenByAlly = true;
                 else
                     seenByEnemy = true;
@@ -103,4 +97,20 @@ public class SuspicionManager : MonoBehaviour
     {
         return mask1 == mask2;
     }
+
+    public void AddSuspicion(float amount)
+{
+    currentSuspicion = Mathf.Clamp(currentSuspicion + amount, 0f, maxSuspicion);
+}
+
+    public bool IsPlayerSeenByAnyNPC()
+    {
+        foreach (var npc in npcObjects)
+        {
+            if (npc.GetComponent<FOVLogic>().CanSeePlayer(playerTransform))
+                return true;
+        }
+        return false;
+    }
+
 }
