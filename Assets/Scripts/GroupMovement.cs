@@ -53,8 +53,6 @@ public class GroupMovement : PointMovement
         MoveUpdate(groupController, currentMoveToPoint);
         RotateGroup();
 
-        Debug.Log(currentMoveToPointIndex);
-
         if (status == GroupStatus.None)
         {
             status = GroupStatus.Waiting;
