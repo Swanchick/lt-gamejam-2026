@@ -5,10 +5,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] public float rotationSpeed = 10f;
     [SerializeField] private float speedMultiplier = 1f;
+    
+    [SerializeField]
+    private Animator animator;
 
     private CharacterController controller;
     private GameObject playerObj;
     private Vector3 lastMoveDirection = Vector3.forward;
+
 
     void Awake()
     {
@@ -18,12 +22,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.IsPaused)
+        {
+            return;
+        }
+
         if (playerObj.GetComponent<Dance>().isDancing)
         {
             return;
         }
 
         HandleMovement();
+
+        animator.SetFloat("Speed", controller.velocity.magnitude);
     }
 
     private void HandleMovement()
