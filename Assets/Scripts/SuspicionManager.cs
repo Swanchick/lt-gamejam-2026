@@ -6,7 +6,7 @@ public class SuspicionManager : MonoBehaviour
 {
     [Header("Tags")]
     [SerializeField] private string playerTag = "Player";
-    [SerializeField] private string npcTag = "NPC";
+    [SerializeField] private string npcTag = "Enemy";
 
     [Header("Suspicion Settings")]
     [SerializeField] private float maxSuspicion = 100f;
@@ -40,11 +40,11 @@ public class SuspicionManager : MonoBehaviour
             if (npcFov != null)
                 allNPCs.Add(npcFov);
             else
-                Debug.LogWarning($"NPC object {npcObj.name} has no NPCFOV script!");
+                Debug.LogWarning($"NPC object {npcObj.name} has no FOVLogic script!");
         }
 
         if (allNPCs.Count <= 0)
-            Debug.LogWarning("No NPCs with NPCFOV found in the scene!");
+            Debug.LogWarning("No NPCs with FOVLogic found in the scene!");
     }
 
     void Update()
@@ -64,7 +64,10 @@ public class SuspicionManager : MonoBehaviour
         {
             if (npc.CanSeePlayer(playerTransform))
             {
-                if (MaskTypesMatches(npc.GetComponent<Mask>().MaskName, playerObj.GetComponent<Mask>().MaskName))
+                Mask npcMask = npc.GetComponentInChildren<Mask>();
+                Mask playerMask = playerObj.GetComponent<Mask>();
+
+                if (MaskTypesMatches(npcMask.MaskName, playerMask.MaskName))
                     seenByAlly = true;
                 else
                     seenByEnemy = true;

@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 5170706475715418643}
   - component: {fileID: 903382734682980636}
   - component: {fileID: 4775129186434049067}
+  - component: {fileID: 4687049701351778735}
   m_Layer: 6
   m_Name: Npc
   m_TagString: Enemy
@@ -164,6 +165,20 @@ MonoBehaviour:
   group: {fileID: 0}
   groupPoint: {fileID: 0}
   restingTime: 0
+--- !u!114 &4687049701351778735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320573958214995383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b6b0471d6f9fe49ad9672ae2971741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewAngle: 110
+  viewDistance: 5
 --- !u!1001 &3581935352005078807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,7 +293,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: FOV
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1070851557416450466, guid: a81b0a1e2e860564995e0e1dad5cdbef, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
