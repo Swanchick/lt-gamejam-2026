@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8013753823923799184}
   - component: {fileID: 4698162335153996989}
   - component: {fileID: 2306224353066718912}
-  - component: {fileID: 5782695749366917436}
   - component: {fileID: 5462875384328995867}
   - component: {fileID: 4444186078651367921}
   m_Layer: 6
@@ -81,20 +80,6 @@ MonoBehaviour:
   group: {fileID: 0}
   groupPoint: {fileID: 0}
   restingTime: 0
---- !u!114 &5782695749366917436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4044841661012534606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b6b0471d6f9fe49ad9672ae2971741, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  viewAngle: 110
-  viewDistance: 5
 --- !u!114 &5462875384328995867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mask: {fileID: 8437772802063340337}
+  rotation: {fileID: 0}
   isDead: 0
 --- !u!114 &4444186078651367921
 MonoBehaviour:
@@ -339,8 +325,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 527f00d2458d9f34ead040400b122b6e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7788641130538956707}
   m_SourcePrefab: {fileID: 100100000, guid: 527f00d2458d9f34ead040400b122b6e, type: 3}
+--- !u!1 &5140784972386474977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 527f00d2458d9f34ead040400b122b6e, type: 3}
+  m_PrefabInstance: {fileID: 5446775424385164976}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7788641130538956707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140784972386474977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b6b0471d6f9fe49ad9672ae2971741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewAngle: 110
+  viewDistance: 5
 --- !u!4 &5484377324943262043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 527f00d2458d9f34ead040400b122b6e, type: 3}

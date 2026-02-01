@@ -110,7 +110,7 @@ public class SuspicionManager : MonoBehaviour
     {
         foreach (var npc in npcObjects)
         {
-            if (npc.GetComponent<FOVLogic>().CanSeePlayer(playerTransform))
+            if (npc.GetComponentInChildren<FOVLogic>().CanSeePlayer(playerTransform))
                 return true;
         }
         return false;
