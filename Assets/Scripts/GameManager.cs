@@ -37,6 +37,14 @@ public class GameManager : MonoBehaviour
         State = GameState.Active;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     public void OnTargetEliminated()
     {
         if (State != GameState.Active)
