@@ -18,7 +18,10 @@ public class CameraFollow : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        if (GameManager.IsPaused)
+        return;
+
         if (!target) return;
 
         Vector3 desiredPosition = target.position + offset;

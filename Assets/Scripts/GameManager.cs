@@ -31,13 +31,10 @@ public class GameManager : MonoBehaviour
 
     private Vector3 cameraOffset;
 
-    private void Awake()
+    private void Start()
     {
         Instance = this;
         State = GameState.Active;
-
-        if (mainCamera != null && player != null)
-            cameraOffset = mainCamera.transform.position - player.position;
     }
 
     public void OnTargetEliminated()
@@ -51,6 +48,14 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator WinSequence()
     {
+        if (mainCamera == null || player == null)
+        {
+            Debug.LogError("Main camera or player is null!");
+            yield break;
+        }
+
+        cameraOffset = mainCamera.transform.position - player.position;
+
         Vector3 startOffset = cameraOffset;
         Vector3 endOffset = cameraOffset * zoomMultiplier;
 

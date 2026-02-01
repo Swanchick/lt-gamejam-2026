@@ -22,6 +22,8 @@ public class KillableNPC : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
+        OnKilled?.Invoke();
+
         enabled = false;
         npc.enabled = false;
 
@@ -32,7 +34,6 @@ public class KillableNPC : MonoBehaviour
 
         npc.OnNpcComingBack();
 
-        OnKilled?.Invoke();
         // Later: play animation / remove collider / despawn
     }
 }
