@@ -41,7 +41,7 @@ public class SuspicionManager : MonoBehaviour
 
     void Update()
     {
-        if (playerTransform != null && npcObjects.Length > 0)
+        if (playerTransform != null)
             UpdateSuspicion();
         
         slider.value = currentSuspicion / 100f;
@@ -77,10 +77,10 @@ public class SuspicionManager : MonoBehaviour
         {
             deltaSuspicion += suspicionAloneRate * Time.deltaTime;
         }
-
-        if (isDancing)
+        else if (isDancing && seenByAlly)
+        {
             deltaSuspicion -= suspicionDecayRate * Time.deltaTime;
-
+        }
 
         currentSuspicion = Mathf.Clamp(currentSuspicion + deltaSuspicion, 0f, maxSuspicion);
 
