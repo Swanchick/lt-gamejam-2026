@@ -84,7 +84,7 @@ public class SuspicionManager : MonoBehaviour
 
         currentSuspicion = Mathf.Clamp(currentSuspicion + deltaSuspicion, 0f, maxSuspicion);
 
-        Debug.Log($"Current Suspicion: {currentSuspicion}");
+        //Debug.Log($"Current Suspicion: {currentSuspicion}");
 
         if (currentSuspicion >= maxSuspicion)
             OnSuspicionMax();
