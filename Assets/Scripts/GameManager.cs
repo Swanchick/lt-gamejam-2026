@@ -10,6 +10,20 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
+    
+    
+    public static AudioSource AudioSource
+    {
+        get
+        {
+            GameManager instance = Instance;
+            return instance.audioSource;
+        }
+    }
+
+    [SerializeField]
+    private AudioSource audioSource;
+
     public static GameManager Instance { get; private set; }
     public GameState State { get; private set; }
 
@@ -35,6 +49,14 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         State = GameState.Active;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public void OnTargetEliminated()

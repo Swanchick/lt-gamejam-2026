@@ -106,6 +106,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mask: {fileID: 5274002305977362625}
+  rotation: {fileID: 4523786416243913137}
+  isDead: 0
 --- !u!95 &5355665445638416619
 Animator:
   serializedVersion: 7
