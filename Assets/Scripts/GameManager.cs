@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using Microsoft.Unity.VisualStudio.Editor;
+using TMPro;
 
 public enum GameState
 {
@@ -68,7 +70,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(WinSequence());
     }
 
-    private IEnumerator WinSequence()
+    private IEnumerator WinSequence(bool Victory = true)
     {
         if (mainCamera == null || player == null)
         {
@@ -92,6 +94,13 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         if (winPanel != null)
             winPanel.SetActive(true);
+
+        if (!Victory)
+        {
+            var tmpText = winPanel.GetComponentInChildren<TextMeshProUGUI>();
+            tmpText.text = "You Lost!";
+            tmpText.color = Color.red;
+        }
     }
 
     public void OnPlayerCaught()
@@ -102,5 +111,6 @@ public class GameManager : MonoBehaviour
         State = GameState.Paused;
         // Implement game over sequence here
         Debug.Log("Player caught! Game Over.");
+        StartCoroutine(WinSequence(false));
     }
 }
