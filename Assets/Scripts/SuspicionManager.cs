@@ -92,8 +92,8 @@ public class SuspicionManager : MonoBehaviour
 
     private void OnSuspicionMax()
     {
-        //Debug.LogError("Player caught!");
-        // TODO: trigger game over
+        Debug.Log("Suspicion maxed out! Game Over.");
+        GameManager.Instance.OnPlayerCaught();
     }
 
     private bool MaskTypesMatches(string mask1, string mask2)

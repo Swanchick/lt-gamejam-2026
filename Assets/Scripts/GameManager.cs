@@ -93,4 +93,14 @@ public class GameManager : MonoBehaviour
         if (winPanel != null)
             winPanel.SetActive(true);
     }
+
+    public void OnPlayerCaught()
+    {
+        if (State != GameState.Active)
+            return;
+
+        State = GameState.Paused;
+        // Implement game over sequence here
+        Debug.Log("Player caught! Game Over.");
+    }
 }
