@@ -61,5 +61,9 @@ public class PlayerMovement : MonoBehaviour
                 rotationSpeed * Time.deltaTime
             );
         }
+
+        controller.enabled = false;
+        transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+        controller.enabled = true;
     }
 }

@@ -9,6 +9,9 @@ public class KillableNPC : MonoBehaviour
     private Npc npc;
     private CharacterController controller;
 
+    [SerializeField]
+    private ConstantRotation rotation;
+
     public bool isDead = false;
 
     void Awake()
@@ -29,6 +32,8 @@ public class KillableNPC : MonoBehaviour
 
         if (controller != null)
             controller.enabled = false;
+
+        rotation.enabled = false;
 
         transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, 0f);
 

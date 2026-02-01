@@ -92,7 +92,7 @@ public class SuspicionManager : MonoBehaviour
 
     private void OnSuspicionMax()
     {
-        Debug.LogError("Player caught!");
+        //Debug.LogError("Player caught!");
         // TODO: trigger game over
     }
 

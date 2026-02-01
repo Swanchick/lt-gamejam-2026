@@ -125,6 +125,10 @@ PrefabInstance:
       value: mask2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7018661cc899c004f973c071e44835c0, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7018661cc899c004f973c071e44835c0, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -202,6 +206,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 35bb9081ac394b8469e5d95b185a6570, type: 3}
       propertyPath: m_Name
       value: mask6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 35bb9081ac394b8469e5d95b185a6570, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 35bb9081ac394b8469e5d95b185a6570, type: 3}
       propertyPath: m_IsActive
@@ -283,6 +291,10 @@ PrefabInstance:
       value: GoldenMask
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 84f82711d6a5859469ce1c31d3056f92, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 84f82711d6a5859469ce1c31d3056f92, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -356,6 +368,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 95d11ae6cb45cb64b9a7ce13741127b8, type: 3}
       propertyPath: m_Name
       value: mask1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95d11ae6cb45cb64b9a7ce13741127b8, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 95d11ae6cb45cb64b9a7ce13741127b8, type: 3}
       propertyPath: m_IsActive
@@ -435,6 +451,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e43f0adcc39574b4bb5719833d0acd7a, type: 3}
       propertyPath: m_Name
       value: mask5
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e43f0adcc39574b4bb5719833d0acd7a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e43f0adcc39574b4bb5719833d0acd7a, type: 3}
       propertyPath: m_IsActive
@@ -520,6 +540,10 @@ PrefabInstance:
       value: Mask4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7ec71bada35966048a0e33bba51202d7, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7ec71bada35966048a0e33bba51202d7, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -593,6 +617,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0d094cf972d41c542a6ea5c1e582be72, type: 3}
       propertyPath: m_Name
       value: Mask3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0d094cf972d41c542a6ea5c1e582be72, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0d094cf972d41c542a6ea5c1e582be72, type: 3}
       propertyPath: m_IsActive
