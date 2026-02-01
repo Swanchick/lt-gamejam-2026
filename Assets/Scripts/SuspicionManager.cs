@@ -84,7 +84,7 @@ public class SuspicionManager : MonoBehaviour
 
         currentSuspicion = Mathf.Clamp(currentSuspicion + deltaSuspicion, 0f, maxSuspicion);
 
-        Debug.Log($"Current Suspicion: {currentSuspicion}");
+        //Debug.Log($"Current Suspicion: {currentSuspicion}");
 
         if (currentSuspicion >= maxSuspicion)
             OnSuspicionMax();
@@ -102,9 +102,9 @@ public class SuspicionManager : MonoBehaviour
     }
 
     public void AddSuspicion(float amount)
-{
-    currentSuspicion = Mathf.Clamp(currentSuspicion + amount, 0f, maxSuspicion);
-}
+    {
+        currentSuspicion = Mathf.Clamp(currentSuspicion + amount, 0f, maxSuspicion);
+    }
 
     public bool IsPlayerSeenByAnyNPC()
     {

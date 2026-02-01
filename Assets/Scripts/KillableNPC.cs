@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class KillableNPC : MonoBehaviour
 {
+    public event Action OnKilled;
     public Mask Mask;
 
     private Npc npc;
     private CharacterController controller;
 
-    private bool isDead = false;
+    public bool isDead = false;
 
     void Awake()
     {
@@ -20,6 +21,8 @@ public class KillableNPC : MonoBehaviour
     {
         if (isDead) return;
         isDead = true;
+
+        OnKilled?.Invoke();
 
         enabled = false;
         npc.enabled = false;

@@ -9,6 +9,7 @@ public class Dance : MonoBehaviour
 
     private SuspicionManager suspicionManager;
 
+    [System.Obsolete]
     private void Start()
     {
         suspicionManager = FindObjectOfType<SuspicionManager>();

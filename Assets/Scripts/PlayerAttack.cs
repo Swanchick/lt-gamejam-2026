@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
 
     private SuspicionManager suspicionManager;
 
+    [Obsolete]
     void Start()
     {
         suspicionManager = FindObjectOfType<SuspicionManager>();
@@ -29,16 +30,16 @@ public class PlayerAttack : MonoBehaviour
         KillableNPC target = FindClosestKillableNPC();
         if (target == null) return;
 
-        target.Kill();
-
-        PlayerMaskManager.SetMask(target.Mask.MaskName);
-
         bool seenByAnyone = suspicionManager.IsPlayerSeenByAnyNPC();
-
+ 
         if (seenByAnyone)
             suspicionManager.AddSuspicion(100f);
         else
             suspicionManager.AddSuspicion(30f);
+
+        target.Kill();
+
+        PlayerMaskManager.SetMask(target.Mask.MaskName);
     }
 
     private KillableNPC FindClosestKillableNPC()
@@ -51,7 +52,7 @@ public class PlayerAttack : MonoBehaviour
         foreach (GameObject npcObj in npcObjects)
         {
             KillableNPC killable = npcObj.GetComponent<KillableNPC>();
-            if (killable == null) continue;
+            if (killable == null || killable.isDead) continue;
 
             float dist = Vector3.Distance(transform.position, npcObj.transform.position);
             if (dist <= killRange && dist < minDistance)
