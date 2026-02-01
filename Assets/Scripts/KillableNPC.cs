@@ -9,7 +9,7 @@ public class KillableNPC : MonoBehaviour
     private Npc npc;
     private CharacterController controller;
 
-    private bool isDead = false;
+    public bool isDead = false;
 
     void Awake()
     {

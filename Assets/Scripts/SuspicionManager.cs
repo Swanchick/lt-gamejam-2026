@@ -102,9 +102,9 @@ public class SuspicionManager : MonoBehaviour
     }
 
     public void AddSuspicion(float amount)
-{
-    currentSuspicion = Mathf.Clamp(currentSuspicion + amount, 0f, maxSuspicion);
-}
+    {
+        currentSuspicion = Mathf.Clamp(currentSuspicion + amount, 0f, maxSuspicion);
+    }
 
     public bool IsPlayerSeenByAnyNPC()
     {
