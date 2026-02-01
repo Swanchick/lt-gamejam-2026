@@ -8,14 +8,14 @@ public class AmbientChange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "player")
+        if (other.tag != "Player")
         {
             return;
         }
 
-        GameManager.AudioSource.Play();
-        GameManager.AudioSource.clip = clip;
         GameManager.AudioSource.Stop();
+        GameManager.AudioSource.clip = clip;
+        GameManager.AudioSource.Play();
 
         Destroy(gameObject);
     }
